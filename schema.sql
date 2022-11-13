@@ -23,6 +23,7 @@ CREATE TABLE "public"."Course" (
 CREATE TABLE "public"."Workspace" (
   uuid VARCHAR(255) PRIMARY KEY NOT NULL,
   desiredCount INTEGER NOT NULL,
+  website VARCHAR(255) NOT NULL,
   userId VARCHAR(255) NOT NULL,
   courseId INTEGER NOT NULL,
   FOREIGN KEY (courseId) REFERENCES "public"."Course"(id) ON DELETE CASCADE,
@@ -45,5 +46,4 @@ CREATE TABLE "public"."User_Course" (
   PRIMARY KEY (userId, courseId)
 );
 
-
--- TODO; Insert Admin User into Database
+INSERT INTO "User" (uuid, username, email, firstname, lastname, isadmin) VALUES ('original_admin', 'armadaadmin', 'thefourofours@gmail.com', 'Armada', 'Admin', TRUE);
